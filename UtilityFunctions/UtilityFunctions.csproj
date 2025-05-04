@@ -3,9 +3,22 @@
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Nullable>enable</Nullable>
     <AssemblyName>UtilityFunctions</AssemblyName>
     <RootNamespace>Farrellsoft.UtilityFunctions</RootNamespace>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <PackageId>Farrellsoft.UtilityFunctions</PackageId>
+    <Version>1.0.0</Version>
+    <Title>Farrellsoft.UtilityFunctions</Title>
+    <Authors>Farrellsoft</Authors>
+    <Company>Farrellsoft</Company>
+    <Description>Utility Extension Functions for .NET applications.</Description>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <RepositoryUrl>https://github.com/farrellsoft/UtilityFunctions</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
   </PropertyGroup>
 
 </Project>
