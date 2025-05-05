@@ -28,6 +28,10 @@ jobs:
         run: dotnet test --logger trx --results-directory TestResults
         working-directory: UtilityFunction.Tests/
 
+      - name: Build the project
+        run: dotnet build --configuration Release
+        working-directory: UtilityFunctions
+
       - name: Pack the project
         run: dotnet pack --configuration Release --output ./nupkgs
 
