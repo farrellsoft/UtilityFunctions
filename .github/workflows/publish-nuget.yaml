@@ -33,7 +33,7 @@ jobs:
         working-directory: UtilityFunctions
 
       - name: Pack the project
-        run: dotnet pack --configuration Release --output ./nupkgs
+        run: dotnet pack --configuration Release --output ./nupkgs # --version
 
       #- name: Publish to NuGet
       #  env:
