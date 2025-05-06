@@ -120,4 +120,43 @@ public class SmartParserUnitTestSuite
         // assert
         Assert.Equal(float.MaxValue, floatValue);
     }
+
+    [Fact]
+    public void ValidDoubleNumericStringParsedToValue()
+    {
+        // arrange
+        var strValue = (double.MaxValue - 1).ToString();
+        
+        // act
+        var doubleValue = strValue.AsDouble();
+        
+        // assert
+        Assert.Equal(double.MaxValue - 1, doubleValue);
+    }
+
+    [Fact]
+    public void InvalidDoubleNumericStringReturnsMinValByDefault()
+    {
+        // arrange
+        var strValue = "abc";
+        
+        // act
+        var doubleValue = strValue.AsDouble();
+        
+        // assert
+        Assert.Equal(double.MinValue, doubleValue);
+    }
+
+    [Fact]
+    public void InvalidDoubleNumericStringWithReturnsGivenDefaultValue()
+    {
+        // arrange
+        var strValue = "abc";
+        
+        // act
+        var doubleValue = strValue.AsDouble(double.MaxValue - 1);
+        
+        // assert
+        Assert.Equal(double.MaxValue - 1, doubleValue);
+    }
 }

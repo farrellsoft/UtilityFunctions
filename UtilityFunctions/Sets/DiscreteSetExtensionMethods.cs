@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Farrellsoft.UtilityFunctions
 {
-    public static class SetExtensionMethods
+    public static class DiscreteSetExtensionMethods
     {
         public static IEnumerable<T> SymmetricDifference<T>(this IEnumerable<T> source, IEnumerable<T> other, IEqualityComparer<T> comparer = null)
         {
@@ -15,19 +15,13 @@ namespace Farrellsoft.UtilityFunctions
             if (other == null) throw new ArgumentNullException(nameof(other));
             var otherList = other.ToList();
 
-            foreach (var item in sourceList)
+            foreach (var item in sourceList.Where(item => !otherList.Contains(item, comparer ?? EqualityComparer<T>.Default)))
             {
-                if (!otherList.Contains(item, comparer ?? EqualityComparer<T>.Default))
-                {
-                    yield return item;
-                }
+                yield return item;
             }
-            foreach (var item in otherList)
+            foreach (var item in otherList.Where(item => !sourceList.Contains(item, comparer ?? EqualityComparer<T>.Default)))
             {
-                if (!sourceList.Contains(item, comparer ?? EqualityComparer<T>.Default))
-                {
-                    yield return item;
-                }
+                yield return item;
             }
         }
 
